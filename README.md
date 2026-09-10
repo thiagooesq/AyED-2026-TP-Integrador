@@ -5,7 +5,7 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 ## Integrantes
 
 | Nombre | Mail | GitHub |
-| --- | --- | --- |
+| Thiago Esquivel | thiago.ne008@gmail.com | thiagooesq |
 |  |  |  |
 |  |  |  |
 |  |  |  |
