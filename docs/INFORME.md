@@ -21,9 +21,23 @@ Un item del catalago (en mi caso) representaria a un Pokemon con su nombre y tip
 ## 3. Recursión (E2)
 
 - Función:
+  "mostrar_evoluciones(pokemon_actual)"
 - Caso base:
+  Cuando el pokemon q se elija no tiene evoluciones la función terminaria
 - Caso recursivo:
+  Por cada evolución del pokemon actual, la función vuelve a llamarse con esa evolucion
 - Traza de un ejemplo real del dataset:
+  EJ Pichu:
+  1. Se llama (o elije) al pokemon (en este caso Pichu)
+    "mostrar_evoluciones(Pichu)"
+  2. Se muestra "Pichu"
+  3. Pichu tiene como evoluciones a Pikachu, entonces se llama a
+    "mostrar_evoluciones(Pikachu)"
+  4. Se muestra a "Pikachu"
+  5. Pikachu tiene como evoluciones a Raichu, entonces se llama a
+    "mostrar_evoluciones(Raichu)"
+  6. Se muestra a "Raichu"
+  7. Como Raichu ya no tiene evoluciones se volveria al caso base x lo q la funcion termina
 
 ## 4. TADs (E3)
 
