@@ -1,5 +1,5 @@
 from src.config import TEMA
-from src.dominio.pokedex import listar_catalogo
+from src.dominio.pokedex import listar_catalogo, mostrar_evoluciones, catalogo
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -39,8 +39,24 @@ def main():
         opcion = input("> ").strip()
         if opcion == "1":
             listar_catalogo()
+        elif opcion == "5":
+            nombre = input("Ingrese el nombre del Pokémon: ")
+
+            encontrado = None
+
+            for pokemon in catalogo:
+                if pokemon.nombre == nombre:
+                    encontrado = pokemon
+                    break
+            
+            if encontrado != None:
+                mostrar_evoluciones(encontrado)
+            else:
+                print("Pokémon no encontrado")
+        
         elif opcion == "0":
             print("Chau.")
+            
         else:
             print("Opción inválida.")
 
