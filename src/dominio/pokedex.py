@@ -64,5 +64,5 @@ def mostrar_evoluciones(pokemon_actual):
   if not pokemon_actual.evoluciones:
     return
 
-  for evoluciones in pokemon_actual.evoluciones:
+  for evolucion in pokemon_actual.evoluciones:
     mostrar_evoluciones(evolucion)
