@@ -1,25 +1,29 @@
-from src.dominio.pokemon import pokemon 
+from src.dominio.pokemon import pokemon
+from src.tads.lista_enlazada import ListaEnlazada
+from src.excepciones import ItemNoEncontradoError
 
-bulbasaur = pokemon("Bulbasaur" , "Planta")
-ivysaur = pokemon("Ivysaur" , "Planta")
-venusaur = pokemon("Venusaur" , "Planta")
 
-charmander = pokemon("Charmander" , "Fuego")
-charmeleon = pokemon("Charmeleon" , "Fuego")
-charizard = pokemon("Charizard" , "Fuego")
+bulbasaur = pokemon("Bulbasaur", "Planta")
+ivysaur = pokemon("Ivysaur", "Planta")
+venusaur = pokemon("Venusaur", "Planta")
 
-squirtle = pokemon("Squirtle" , "Agua")
-wartortle = pokemon("Wartortle" , "Agua")
-blastoise = pokemon("Blastoise" , "Agua")
+charmander = pokemon("Charmander", "Fuego")
+charmeleon = pokemon("Charmeleon", "Fuego")
+charizard = pokemon("Charizard", "Fuego")
 
-pichu = pokemon("Pichu" , "Electrico")
-pikachu = pokemon("Pikachu" , "Electrico")
-raichu = pokemon("Raichu" , "Electrico")
+squirtle = pokemon("Squirtle", "Agua")
+wartortle = pokemon("Wartortle", "Agua")
+blastoise = pokemon("Blastoise", "Agua")
 
-eevee = pokemon("Eevee" , "Normal")
-vaporeon = pokemon("Vaporeon" , "Agua")
-jolteon = pokemon("Jolteon" , "Electrico")
-flareon = pokemon("Flareon" , "Fuego")
+pichu = pokemon("Pichu", "Electrico")
+pikachu = pokemon("Pikachu", "Electrico")
+raichu = pokemon("Raichu", "Electrico")
+
+eevee = pokemon("Eevee", "Normal")
+vaporeon = pokemon("Vaporeon", "Agua")
+jolteon = pokemon("Jolteon", "Electrico")
+flareon = pokemon("Flareon", "Fuego")
+
 
 bulbasaur.evoluciones = [ivysaur]
 ivysaur.evoluciones = [venusaur]
@@ -35,33 +39,52 @@ pikachu.evoluciones = [raichu]
 
 eevee.evoluciones = [vaporeon, jolteon, flareon]
 
-catalogo = [
-  bulbasaur,
-  ivysaur,
-  venusaur,
-  charmander,
-  charmeleon,
-  charizard,
-  squirtle,
-  wartortle,
-  blastoise,
-  pichu,
-  pikachu,
-  raichu,
-  eevee,
-  vaporeon,
-  jolteon,
-  flareon
-]
 
-def listar_catalogo ():
-  for pokemon in catalogo:
-      print(F"{pokemon.nombre} - {pokemon.tipo}")
+catalogo = ListaEnlazada()
+
+catalogo.insertar_al_final(bulbasaur)
+catalogo.insertar_al_final(ivysaur)
+catalogo.insertar_al_final(venusaur)
+
+catalogo.insertar_al_final(charmander)
+catalogo.insertar_al_final(charmeleon)
+catalogo.insertar_al_final(charizard)
+
+catalogo.insertar_al_final(squirtle)
+catalogo.insertar_al_final(wartortle)
+catalogo.insertar_al_final(blastoise)
+
+catalogo.insertar_al_final(pichu)
+catalogo.insertar_al_final(pikachu)
+catalogo.insertar_al_final(raichu)
+
+catalogo.insertar_al_final(eevee)
+catalogo.insertar_al_final(vaporeon)
+catalogo.insertar_al_final(jolteon)
+catalogo.insertar_al_final(flareon)
+
+
+def listar_catalogo():
+    for p in catalogo:
+        print(f"{p.nombre} - {p.tipo}")
+
+
+def buscar_pokemon(nombre):
+    for p in catalogo:
+        if p.nombre == nombre:
+            return p
+
+    raise ItemNoEncontradoError("No se encontró ese Pokémon.")
+
 
 def mostrar_evoluciones(pokemon_actual):
-  print(pokemon_actual.nombre)
+    print(pokemon_actual.nombre)
 
-  if not pokemon_actual.evoluciones:
+    if not pokemon_actual.evoluciones:
+        return
+
+    for evolucion in pokemon_actual.evoluciones:
+        mostrar_evoluciones(evolucion)
     return
 
   for evolucion in pokemon_actual.evoluciones:
