@@ -8,7 +8,7 @@ Fecha de esta versión del archivo:
 | --- | --- | --- | --- | --- | --- | --- |
 | E1 | 09/09 | ChatGPT | Codigo | Me ayudo a crear pokemon.py, pokedex.py | main.py (igual revise todo lo q me dio) | Thiago Esquivel |
 | E2 | 18/09 | ChatGPT | Codigo | Ayudo a actualizar | pokemon.py, pokedex.py y main.py (Es lo q me ayudo a actualizar e igual revise todo lo q me dio | Thiago Esquivel |
-| E3 |  |  |  |  |  |  |
+| E3 | 02/10 | ChatGPT | Diseño, Codigo, Intregacion, Debug | ListaEnlazada, Cola, Pila, Iterador, Equipo, Historial, Cola de Turnos, Menu | Revise y adapte el codigo generado por la IA | Thiago Esquivel |
 | E4 |  |  |  |  |  |  |
 | E5 |  |  |  |  |  |  |
 | E6 |  |  |  |  |  |  |
