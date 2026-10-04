@@ -1,8 +1,8 @@
 from src.tads.lista_enlazada import ListaEnlazada
-from src.excepciones import PilaVaciaError
+from src.excepciones import ColaVaciaError
 
 
-class Pila:
+class Cola:
 
     def __init__(self):
         self._items = ListaEnlazada()
