@@ -12,10 +12,10 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue |  |  |
 | P03 | E2 | Elegir "Operación recursiva" e ingresar un pokemon con línea evolutiva | Pichu | imprime Pichu, Pikachu y Raichu | Pasa |  |
 | P04 | E2 | Elegir "Operación Recursiva" e ingresar un pokemon sin línea evolutiva | Raichu | imprime solo Raichu y termina | Pasa |  |
-| P05 | E3 | Agregar a la colección principal hasta el tope | equipo de 6 / equivalente | el séptimo falla con excepción propia |  |  |
-| P06 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue |  |  |
-| P07 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue |  |  |
-| P08 | E3 | Listar colección con el iterador | 2+ ítems | el orden coincide con las inserciones |  |  |
+| P05 | E3 | Agregar a la colección principal | equipo de 6 | el séptimo falla con excepción propia | Pasa |  |
+| P06 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue | Pasa |  |
+| P07 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue | Pasa |  |
+| P08 | E3 | Listar colección con el iterador | 2+ Pokemon | el orden coincide con las inserciones | Pasa |  |
 | P09 | E4 | Búsqueda lineal de un nombre que existe |  | lo encuentra |  |  |
 | P10 | E4 | Búsqueda lineal de un nombre que no existe |  | no encontrado, sin traceback |  |  |
 | P11 | E4 | Búsqueda binaria con catálogo desordenado |  | avisa o reordena; no da un falso hit |  |  |
