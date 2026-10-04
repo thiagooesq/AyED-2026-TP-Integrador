@@ -85,7 +85,3 @@ def mostrar_evoluciones(pokemon_actual):
 
     for evolucion in pokemon_actual.evoluciones:
         mostrar_evoluciones(evolucion)
-    return
-
-  for evolucion in pokemon_actual.evoluciones:
-      mostrar_evoluciones(evolucion)
