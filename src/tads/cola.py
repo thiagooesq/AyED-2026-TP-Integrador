@@ -1,17 +1,29 @@
-class Cola:
-    """TAD cola implementado sobre ListaEnlazada."""
+from src.tads.lista_enlazada import ListaEnlazada
+from src.excepciones import PilaVaciaError
+
+
+class Pila:
 
     def __init__(self):
-        raise NotImplementedError
+        self._items = ListaEnlazada()
 
-    def encolar(self, dato):
-        raise NotImplementedError
+    def apilar(self, dato):
+        self._items.insertar_al_inicio(dato)
 
-    def desencolar(self):
-        raise NotImplementedError
+    def desapilar(self):
+        if self.esta_vacia():
+            raise PilaVaciaError("No hay acciones en el historial para deshacer.")
 
-    def ver_frente(self):
-        raise NotImplementedError
+        tope = self.ver_tope()
+        self._items.eliminar(tope)
+
+        return tope
+
+    def ver_tope(self):
+        if self.esta_vacia():
+            raise PilaVaciaError("La pila está vacía.")
+
+        return self._items._cabeza.dato
 
     def esta_vacia(self):
-        raise NotImplementedError
+        return self._items.esta_vacia()
