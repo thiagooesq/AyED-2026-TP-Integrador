@@ -43,11 +43,13 @@ Un item del catalago (en mi caso) representaria a un Pokemon con su nombre y tip
 
 | TAD | Operaciones | Invariante |
 | --- | --- | --- |
-| ListaEnlazada |  |  |
-| Pila |  |  |
-| Cola |  |  |
+| ListaEnlazada | esta_vacia, tamanio, insertar_al_inicio, insertar_al_final, buscar, eliminar, recorrer | Cada nodo apunta al siguiente y la cabeza al primero |
+| Pila | apilar, desapilar, ver_tope, esta_vacia | Los elementos se agregan y se sacan por la cabeza, LIFO |
+| Cola | encolar, desencolar, ver_frente, esta_vacia | Los elementos entran por el final y salen por la cabeza, FIFO |
 
 Dónde se usa cada uno en el dominio.
+
+RTA: En el dominio, la "ListaEnlazada" se usa para el catalogo y el equipo Pokemon, la "Pila" se usa para el historial de Pokemones visitados y la "Cola" se usa para los turnos en el combate
 
 ## 5. Complejidad (E4)
 
