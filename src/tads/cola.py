@@ -7,21 +7,21 @@ class Cola:
     def __init__(self):
         self._items = ListaEnlazada()
 
-    def apilar(self, dato):
+    def encolar(self, dato):
         self._items.insertar_al_inicio(dato)
 
-    def desapilar(self):
+    def desencolar(self):
         if self.esta_vacia():
-            raise PilaVaciaError("No hay acciones en el historial para deshacer.")
+            raise ColaVaciaError("La cola esta vacia.")
 
-        tope = self.ver_tope()
-        self._items.eliminar(tope)
+        frente = self.ver_frente()
+        self._items.eliminar(frente)
 
-        return tope
+        return frente
 
-    def ver_tope(self):
+    def ver_frente(self):
         if self.esta_vacia():
-            raise PilaVaciaError("La pila está vacía.")
+            raise ColaVaciaError("La cola está vacía.")
 
         return self._items._cabeza.dato
 
