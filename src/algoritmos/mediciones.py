@@ -39,39 +39,32 @@ def ejecutar_mediciones():
 
         clave = lambda p: p.nombre
 
-        # Búsqueda lineal
+        # Busqueda lineal
         tiempo = medir_tiempo(
-            lambda: busqueda_lineal(
-                datos,
-                "Raichu",
-                clave
-            )
+            lambda: busqueda_lineal(datos, "Raichu", clave)
         )
         print("Busqueda lineal:", tiempo, "segundos")
 
-        # Preparar lista ordenada para búsqueda binaria
+        # Preparar lista ordenada
         ordenados = ordenar_insercion(datos, clave)
 
         tiempo = medir_tiempo(
-            lambda: busqueda_binaria(
-                ordenados,
-                "Raichu",
-                clave
-            )
+            lambda: busqueda_binaria(ordenados, "Raichu", clave)
         )
         print("Busqueda binaria:", tiempo, "segundos")
 
-        # Ordenamiento por selección
+        # Ordenamiento por seleccion
         tiempo = medir_tiempo(
             lambda: ordenar_seleccion(datos, clave)
         )
         print("Ordenamiento seleccion:", tiempo, "segundos")
 
-        # Ordenamiento por inserción
+        # Ordenamiento por insercion
         tiempo = medir_tiempo(
             lambda: ordenar_insercion(datos, clave)
         )
         print("Ordenamiento insercion:", tiempo, "segundos")
-      
-    if __name__ == "__main__":
+
+
+if __name__ == "__main__":
     ejecutar_mediciones()
