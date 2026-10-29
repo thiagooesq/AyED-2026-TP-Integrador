@@ -7,21 +7,18 @@ def busqueda_lineal(coleccion, clave, obtener_clave):
 
     return None
 
-
 def busqueda_binaria(coleccion_ordenada, clave, obtener_clave):
     """Busca un elemento en una colección ordenada."""
 
-    elementos = list(coleccion_ordenada)
-
     izquierda = 0
-    derecha = len(elementos) - 1
+    derecha = len(coleccion_ordenada) - 1
 
     while izquierda <= derecha:
         medio = (izquierda + derecha) // 2
-        valor = obtener_clave(elementos[medio])
+        valor = obtener_clave(coleccion_ordenada[medio])
 
         if valor == clave:
-            return elementos[medio]
+            return coleccion_ordenada[medio]
 
         elif valor < clave:
             izquierda = medio + 1
