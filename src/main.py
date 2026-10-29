@@ -17,6 +17,15 @@ from src.excepciones import (
     ColaVaciaError
 )
 
+from src.algoritmos.busqueda import (
+    busqueda_lineal,
+    busqueda_binaria
+)
+
+from src.algoritmos.ordenamiento import (
+    ordenar_seleccion,
+    ordenar_insercion
+)
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -124,6 +133,92 @@ def menu_cola(cola_turnos):
                 print(e)
 
 
+def menu_busqueda():
+
+    print()
+    print("--- Búsqueda ---")
+    print("1. Búsqueda lineal")
+    print("2. Búsqueda binaria")
+    
+    opcion_busqueda = input("> ")
+
+    nombre = input("Nombre del Pokémon: ")
+
+    if opcion_busqueda == "1":
+
+        encontrado = busqueda_lineal(
+            catalogo,
+            nombre,
+            lambda p: p.nombre
+        )
+
+    elif opcion_busqueda == "2":
+
+        catalogo_ordenado = ordenar_insercion(
+            catalogo,
+            lambda p: p.nombre
+        )
+
+        encontrado = busqueda_binaria(
+            catalogo_ordenado,
+            nombre,
+            lambda p: p.nombre
+        )
+
+    else:
+        print("Opción inválida.")
+        return
+
+    if encontrado != None:
+        print(f"Encontrado: {encontrado.nombre} - {encontrado.tipo}")
+    else:
+        print("Pokémon no encontrado.")
+
+
+def menu_ordenamiento():
+
+    print()
+    print("--- Ordenamiento ---")
+    print("1. Ordenar por selección")
+    print("2. Ordenar por inserción")
+
+    opcion_orden = input("> ")
+
+    print()
+    print("1. Ordenar por nombre")
+    print("2. Ordenar por tipo")
+
+    criterio = input("> ")
+
+    if criterio == "1":
+        clave = lambda p: p.nombre
+
+    elif criterio == "2":
+        clave = lambda p: p.tipo
+
+    else:
+        print("Criterio inválido.")
+        return
+
+    if opcion_orden == "1":
+
+        resultado = ordenar_seleccion(catalogo, clave)
+
+    elif opcion_orden == "2":
+
+        resultado = ordenar_insercion(catalogo, clave)
+
+    else:
+        print("Opción inválida.")
+        return
+
+    print()
+    print("--- Catálogo ordenado ---")
+
+    for p in resultado:
+        print(f"{p.nombre} - {p.tipo}")
+
+
 def main():
 
     if TEMA not in TEMAS:
@@ -144,6 +239,14 @@ def main():
         if opcion == "1":
 
             listar_catalogo()
+
+        elif opcion == "3":
+
+            menu_busqueda()
+
+        elif opcion == "4":
+
+            menu_ordenamiento()
 
         elif opcion == "5":
 
