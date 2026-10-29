@@ -3,7 +3,8 @@ from src.config import TEMA
 from src.dominio.pokedex import (
     listar_catalogo,
     buscar_pokemon,
-    mostrar_evoluciones
+    mostrar_evoluciones,
+    catalogo
 )
 
 from src.dominio.equipo import Equipo
