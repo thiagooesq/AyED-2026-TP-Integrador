@@ -8,7 +8,7 @@ class Cola:
         self._items = ListaEnlazada()
 
     def encolar(self, dato):
-        self._items.insertar_al_inicio(dato)
+        self._items.insertar_al_final(dato)
 
     def desencolar(self):
         if self.esta_vacia():
