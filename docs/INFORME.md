@@ -55,7 +55,20 @@ RTA: En el dominio, la "ListaEnlazada" se usa para el catalogo y el equipo Pokem
 
 | Operación | Tiempo | Espacio | Por qué |
 | --- | --- | --- | --- |
-|  |  |  |  |
+| Listar Catalogo | 0(n) | 0(1) | Recorre todos los pokemon |
+| Búsqueda Lineal | 0(n) | 0(1) | Puede recorrer toda la coleccion |
+| Búsqueda Binaria | 0(log n) | 0(1) | Divide el intervalo de búsqueda a la mitad |
+| Ordenamiento x seleccion | 0(n^2) | 0(n) | Compara elementos y crea una copia |
+| Ordenamiento x insercion | 0(n^2) | 0(n) | Desplaza elementos y crea una copia |
+| Insertar al inicio de lista | 0(1) | 0(1) | Agrega un nodo como cabeza |
+| Insertar al final de lista | 0(n) | 0(1) | Recorre la lista hasta el ultimo nodo |
+| Buscar o eliminar lista | 0(n) | 0(1) | Puede recorrer todos los nodos |
+| Listar Equipo | 0(n) | 0(1) | Recorre el equipo |
+| Agregar pokemon al equipo | 0(n) | 0(1) | Inserta al final |
+| Apilar | 0(1) | 0(1) | Inserta al inicio |
+| Desapilar | 0(1) | 0(1) | Elimina la cabeza |
+| Encolar | 0(n) | 0(1) | Inserta al final |
+| Desencolar | 0(1) | 0(1) | Elimina la cabeza |
 
 Mediciones (`time.perf_counter`):
 
