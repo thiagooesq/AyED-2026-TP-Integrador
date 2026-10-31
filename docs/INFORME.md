@@ -59,7 +59,7 @@ RTA: En el dominio, la "ListaEnlazada" se usa para el catalogo y el equipo Pokem
 | Búsqueda Lineal | 0(n) | 0(1) | Puede recorrer toda la coleccion |
 | Búsqueda Binaria | 0(log n) | 0(1) | Divide el intervalo de búsqueda a la mitad |
 | Ordenamiento x seleccion | 0(n^2) | 0(n) | Compara elementos y crea una copia |
-| Ordenamiento x insercion | 0(n^2) | 0(n) | Desplaza elementos y crea una copia |
+| Ordenamiento x insercion | 0(n^2) (peor caso, 0(n) mejor caso) | 0(n) | Desplaza elementos y crea una copia |
 | Insertar al inicio de lista | 0(1) | 0(1) | Agrega un nodo como cabeza |
 | Insertar al final de lista | 0(n) | 0(1) | Recorre la lista hasta el ultimo nodo |
 | Buscar o eliminar lista | 0(n) | 0(1) | Puede recorrer todos los nodos |
