@@ -13,12 +13,15 @@ from src.algoritmos.ordenamiento import (
 )
 
 
-def medir_tiempo(funcion):
+def medir_tiempo(funcion, repeticiones):
     inicio = time.perf_counter()
-    funcion()
+
+    for i in range(repeticiones):
+        funcion()
+
     fin = time.perf_counter()
 
-    return fin - inicio
+    return (fin - inicio) / repeticiones
 
 
 def ejecutar_mediciones():
@@ -39,29 +42,39 @@ def ejecutar_mediciones():
 
         clave = lambda p: p.nombre
 
-        # Busqueda lineal
         tiempo = medir_tiempo(
-            lambda: busqueda_lineal(datos, "Raichu", clave)
+            lambda: busqueda_lineal(
+                datos,
+                "ZZZZZZZZ",
+                clave
+            ),
+            5000
         )
         print("Busqueda lineal:", tiempo, "segundos")
 
-        # Preparar lista ordenada
         ordenados = ordenar_insercion(datos, clave)
 
         tiempo = medir_tiempo(
-            lambda: busqueda_binaria(ordenados, "Raichu", clave)
+            lambda: busqueda_binaria(
+                ordenados,
+                "ZZZZZZZZ",
+                clave
+            ),
+            5000
         )
         print("Busqueda binaria:", tiempo, "segundos")
 
-        # Ordenamiento por seleccion
+        repeticiones = 10 if len(datos) == 16 else 3 if len(datos) == 160 else 1
+
         tiempo = medir_tiempo(
-            lambda: ordenar_seleccion(datos, clave)
+            lambda: ordenar_seleccion(datos, clave),
+            repeticiones
         )
         print("Ordenamiento seleccion:", tiempo, "segundos")
 
-        # Ordenamiento por insercion
         tiempo = medir_tiempo(
-            lambda: ordenar_insercion(datos, clave)
+            lambda: ordenar_insercion(datos, clave),
+            repeticiones
         )
         print("Ordenamiento insercion:", tiempo, "segundos")
 
