@@ -74,7 +74,18 @@ Mediciones (`time.perf_counter`):
 
 | Operación | n | segundos |
 | --- | --- | --- |
-|  |  |  |
+| Búsqueda lineal |	16 | 0.0000035593 |
+| Búsqueda binaria | 16 | 0.0000031862 |
+| Selección | 16 | 0.0000676539 |
+| Inserción | 16 | 0.0000393539 |
+| Búsqueda lineal | 160 | 0.0000265771 |
+| Búsqueda binaria | 160 | 0.0000052907 |
+| Selección | 160 | 0.0055671 |
+| Inserción | 160 | 0.0033721 |
+| Búsqueda lineal | 800 | 0.0001275772 |
+| Búsqueda binaria | 800 | 0.0000088712 |
+| Selección | 800 | 0.1613084 |
+| Inserción | 800 | 0.0985432 |
 
 ## 6. Persistencia (E5)
 
