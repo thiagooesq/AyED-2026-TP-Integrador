@@ -66,22 +66,105 @@ catalogo.insertar_al_final(flareon)
 
 def listar_catalogo():
     for p in catalogo:
-        print(f"{p.nombre} - {p.tipo}")
+        print(f"{p.nombre} - {p.tipo1}")
 
 
 def buscar_pokemon(nombre):
     for p in catalogo:
-        if p.nombre == nombre:
+        if p.nombre.lower() == nombre.lower():
             return p
-
     raise ItemNoEncontradoError("No se encontró ese Pokémon.")
+
+
+def buscar_por_id(id_pokemon):
+    for p in catalogo:
+        if p.id == int(id_pokemon):
+            return p
+    raise ItemNoEncontradoError("No se encontró ese ID.")
 
 
 def mostrar_evoluciones(pokemon_actual):
     print(pokemon_actual.nombre)
-
-    if not pokemon_actual.evoluciones:
-        return
-
     for evolucion in pokemon_actual.evoluciones:
         mostrar_evoluciones(evolucion)
+
+
+def armar_catalogo_desde_txt(ruta):
+    from pathlib import Path
+    from src.persistencia.texto import cargar_texto
+
+    nuevo = ListaEnlazada()
+    por_id = {}
+
+    for fila in cargar_texto(ruta):
+        p = pokemon(
+            fila["nombre"],
+            fila["tipo1"],
+            id=fila["id"],
+            tipo2=fila.get("tipo2"),
+            hp=fila.get("hp", 0),
+            ataque=fila.get("ataque", 0),
+            defensa=fila.get("defensa", 0),
+            velocidad=fila.get("velocidad", 0),
+            generacion=fila.get("generacion", 1)
+        )
+        nuevo.insertar_al_final(p)
+        por_id[p.id] = p
+
+    ruta_evo = Path(ruta).parent / "evoluciones.txt"
+
+    if ruta_evo.exists():
+        for fila in cargar_texto(ruta_evo):
+            origen = por_id.get(int(fila["origen_id"]))
+            destino = por_id.get(int(fila["destino_id"]))
+
+            if origen and destino:
+                origen.evoluciones.append(destino)
+
+    return nuevo
+
+
+def filas_del_catalogo(lista=None):
+    lista = catalogo if lista is None else lista
+
+    return [
+        {
+            "id": p.id,
+            "nombre": p.nombre,
+            "tipo1": p.tipo1,
+            "tipo2": p.tipo2 or "",
+            "hp": p.hp,
+            "ataque": p.ataque,
+            "defensa": p.defensa,
+            "velocidad": p.velocidad,
+            "generacion": p.generacion
+        }
+        for p in lista
+    ]
+
+
+def agregar_pokemon(nuevo):
+    if any(p.id == nuevo.id for p in catalogo):
+        raise ValueError("Ya existe un Pokémon con ese ID.")
+
+    catalogo.insertar_al_final(nuevo)
+
+
+def eliminar_pokemon(id_pokemon):
+    encontrado = buscar_por_id(id_pokemon)
+    catalogo.eliminar(encontrado)
+
+
+def modificar_pokemon(id_pokemon, nombre, tipo1, tipo2,
+                      hp, ataque, defensa, velocidad, generacion):
+    p = buscar_por_id(id_pokemon)
+
+    p.nombre = nombre
+    p.tipo = tipo1
+    p.tipo1 = tipo1
+    p.tipo2 = tipo2 or None
+    p.hp = int(hp)
+    p.ataque = int(ataque)
+    p.defensa = int(defensa)
+    p.velocidad = int(velocidad)
+    p.generacion = int(generacion)
