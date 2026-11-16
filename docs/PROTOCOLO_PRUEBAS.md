@@ -20,6 +20,6 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P10 | E4 | Búsqueda lineal de un nombre que no existe |  | no encontrado, sin traceback | Pasa |  |
 | P11 | E4 | Búsqueda binaria con catálogo desordenado |  | avisa o reordena; no da un falso hit | Pasa |  |
 | P12 | E4 | Ordenar por un criterio y después por otro |  | el orden cambia | Pasa |  |
-| P13 | E5 | Guardar texto (`.txt`), salir, volver a entrar |  | los datos siguen |  |  |
-| P14 | E5 | Guardar binario y modificar un registro por id |  | al recargar, ese campo cambió |  |  |
-| P15 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido |  |  |
+| P13 | E5 | Guardar texto (`.txt`), salir, volver a entrar | Id Nuevo | los datos siguen | no corrido |  |
+| P14 | E5 | Guardar binario y modificar un registro por id | Id Existente | al recargar, ese campo cambió | no corrido |  |
+| P15 | E5 | Abrir un binario truncado o con magia mala | Id Existente | excepción de archivo inválido | no corrido |  |
