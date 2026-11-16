@@ -90,8 +90,27 @@ Mediciones (`time.perf_counter`):
 ## 6. Persistencia (E5)
 
 - Layout del registro binario (campos, `struct`, anchos):
+
+rta: El programa permite guardar y cargar el catálogo de Pokémon mediante
+archivos de texto y archivos binarios, el archivo de texto utiliza registros separados por comas y una primera
+línea con los nombres de los campos, el archivo binario utiliza la biblioteca struct y registros de longitud
+fija.
+
 - Header:
+
+rta: El header tiene 9 bytes y utiliza el formato <4s1sI:
+AYED: identifica el archivo.
+P: identifica el tema Pokédex.
+Cantidad: cantidad de registros almacenados.
+
 - Cómo se actualiza un registro por posición:
+
+rta: Cada registro ocupa 60 bytes y utiliza el formato <I20s12s12s4H:
+ID: 4 bytes.
+Nombre: 20 bytes.
+Tipo 1: 12 bytes.
+Tipo 2: 12 bytes.
+HP, ataque, defensa y velocidad: 2 bytes cada uno.
 
 ## 7. Reparto de trabajo (E6)
 
