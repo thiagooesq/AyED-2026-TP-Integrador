@@ -220,6 +220,84 @@ def menu_ordenamiento():
         print(f"{p.nombre} - {p.tipo}")
 
 
+def guardar_cambios():
+    guardar_texto(
+        RUTA_TXT,
+        filas_del_catalogo(catalogo),
+        ENCABEZADOS
+    )
+    guardar_binario(RUTA_BIN, catalogo)
+
+
+def menu_abm():
+    from src.dominio.pokedex import (
+        agregar_pokemon,
+        eliminar_pokemon,
+        modificar_pokemon
+    )
+    from src.dominio.pokemon import pokemon
+
+    print("\n--- Administración del catálogo ---")
+    print("1. Alta")
+    print("2. Baja")
+    print("3. Modificación")
+
+    opcion = input("> ").strip()
+
+    try:
+        if opcion == "1":
+            id_pokemon = int(input("ID: "))
+            nombre = input("Nombre: ")
+            tipo1 = input("Tipo 1: ")
+            tipo2 = input("Tipo 2 (opcional): ")
+            hp = int(input("HP: "))
+            ataque = int(input("Ataque: "))
+            defensa = int(input("Defensa: "))
+            velocidad = int(input("Velocidad: "))
+            generacion = int(input("Generación: "))
+
+            nuevo = pokemon(
+                nombre, tipo1, id=id_pokemon,
+                tipo2=tipo2, hp=hp, ataque=ataque,
+                defensa=defensa, velocidad=velocidad,
+                generacion=generacion
+            )
+
+            agregar_pokemon(nuevo)
+            guardar_cambios()
+            print("Pokémon agregado y guardado.")
+
+        elif opcion == "2":
+            id_pokemon = int(input("ID a eliminar: "))
+            eliminar_pokemon(id_pokemon)
+            guardar_cambios()
+            print("Pokémon eliminado y guardado.")
+
+        elif opcion == "3":
+            id_pokemon = int(input("ID a modificar: "))
+            nombre = input("Nuevo nombre: ")
+            tipo1 = input("Nuevo tipo 1: ")
+            tipo2 = input("Nuevo tipo 2 (opcional): ")
+            hp = int(input("Nuevo HP: "))
+            ataque = int(input("Nuevo ataque: "))
+            defensa = int(input("Nueva defensa: "))
+            velocidad = int(input("Nueva velocidad: "))
+            generacion = int(input("Nueva generación: "))
+
+            modificar_pokemon(
+                id_pokemon, nombre, tipo1, tipo2,
+                hp, ataque, defensa, velocidad, generacion
+            )
+            guardar_cambios()
+            print("Pokémon modificado y guardado.")
+
+        else:
+            print("Opción inválida.")
+
+    except (ValueError, ItemNoEncontradoError,
+            ArchivoInvalidoError) as error:
+        print("Error:", error)
+
 def main():
 
     if TEMA not in TEMAS:
@@ -278,6 +356,9 @@ def main():
 
             menu_cola(cola_turnos)
 
+        elif opcion == "10":
+            menu_abm ()
+        
         elif opcion == "0":
 
             print("Chau.")
