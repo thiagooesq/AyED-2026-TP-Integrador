@@ -49,6 +49,7 @@ def mostrar_menu():
     print("7. Historial (pila)")
     print("8. Cola")
     print("9. Guardar / cargar archivos")
+    print("10. Administrar catálogo (ABM)")
     print("0. Salir")
 
 
@@ -175,6 +176,26 @@ def menu_busqueda():
     else:
         print("Pokémon no encontrado.")
 
+def menu_detalle():
+
+    nombre = input("Nombre del Pokemon: ")
+
+    try:
+        p = buscar_pokemon(nombre)
+
+        print("\n--- Detalle del pokemon ---")
+        print(f"ID: {p.id}")
+        print(f"Nombre: {p.nombre}")
+        print(f"Tipo 1: {p.tipo1}")
+        print(f"Tipo 2: {p.tipo2 or 'Ninguno'}")
+        print(f"HP: {p.hp}")
+        print(f"Ataque: {p.ataque}")
+        print(f"Defensa: {p.defensa}")
+        print(f"Velocidad: {p.velocidad}")
+        print(f"Generacion: {p.generacion}")
+    
+    except ItemNoEncontradoError as e:
+        print(e)
 
 def menu_ordenamiento():
 
@@ -319,6 +340,10 @@ def main():
 
             listar_catalogo()
 
+        elif opcion == "2":
+
+            menu_detalle()
+        
         elif opcion == "3":
 
             menu_busqueda()
