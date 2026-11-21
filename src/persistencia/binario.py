@@ -1,3 +1,4 @@
+import struct
 from pathlib import Path
 
 from src.excepciones import ArchivoInvalidoError
