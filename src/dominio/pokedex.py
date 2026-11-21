@@ -42,27 +42,6 @@ eevee.evoluciones = [vaporeon, jolteon, flareon]
 
 catalogo = ListaEnlazada()
 
-catalogo.insertar_al_final(bulbasaur)
-catalogo.insertar_al_final(ivysaur)
-catalogo.insertar_al_final(venusaur)
-
-catalogo.insertar_al_final(charmander)
-catalogo.insertar_al_final(charmeleon)
-catalogo.insertar_al_final(charizard)
-
-catalogo.insertar_al_final(squirtle)
-catalogo.insertar_al_final(wartortle)
-catalogo.insertar_al_final(blastoise)
-
-catalogo.insertar_al_final(pichu)
-catalogo.insertar_al_final(pikachu)
-catalogo.insertar_al_final(raichu)
-
-catalogo.insertar_al_final(eevee)
-catalogo.insertar_al_final(vaporeon)
-catalogo.insertar_al_final(jolteon)
-catalogo.insertar_al_final(flareon)
-
 
 def listar_catalogo():
     for p in catalogo:
@@ -168,3 +147,12 @@ def modificar_pokemon(id_pokemon, nombre, tipo1, tipo2,
     p.defensa = int(defensa)
     p.velocidad = int(velocidad)
     p.generacion = int(generacion)
+
+def cargar_catalogo_inicial(ruta):
+    nuevo = armar_catalogo_desde_txt(ruta)
+
+    for p in list(catalogo):
+        catalogo.eliminar(p)
+
+    for p in nuevo:
+        catalogo.insterar_al_final(p)
