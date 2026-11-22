@@ -358,6 +358,53 @@ def menu_abm():
             ArchivoInvalidoError) as error:
         print("Error:", error)
 
+def menu_archivos():
+    print("\n--- Guardar / Cargar archivos ---")
+    print("1. Guardar catálogo en TXT")
+    print("2. Cargar catálogo desde TXT")
+    print("3. Guardar catálogo en binario")
+    print("4. Cargar catálogo desde binario")
+    print("0. Volver")
+
+    opcion = input("> ").strip()
+
+    try:
+        if opcion == "1":
+            guardar_texto(
+                RUTA_TXT,
+                filas_del_catalogo(catalogo),
+                ENCABEZADOS
+            )
+            print("Catálogo guardado en TXT.")
+
+        elif opcion == "2":
+            cargar_catalogo_inicial(RUTA_TXT)
+            print("Catálogo cargado desde TXT.")
+
+        elif opcion == "3":
+            guardar_binario(RUTA_BIN, catalogo)
+            print("Catálogo guardado en binario.")
+
+        elif opcion == "4":
+            nuevo = cargar_binario(RUTA_BIN)
+
+            for p in list(catalogo):
+                catalogo.eliminar(p)
+
+            for p in nuevo:
+                catalogo.insertar_al_final(p)
+
+            print("Catálogo cargado desde binario.")
+
+        elif opcion == "0":
+            return
+
+        else:
+            print("Opción inválida.")
+
+    except (ArchivoInvalidoError, ValueError) as error:
+        print("Error:", error)
+
 def main():
 
     if TEMA not in TEMAS:
@@ -435,6 +482,10 @@ def main():
 
             menu_cola(cola_turnos)
 
+        elif opcion == "9":
+
+            menu_archivos()
+        
         elif opcion == "10":
             menu_abm ()
         
