@@ -8,8 +8,8 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 
 | ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| P01 | E1 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback |  |  |
-| P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue |  |  |
+| P01 | E1 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback | Pasa |  |
+| P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue | Pasa |  |
 | P03 | E2 | Elegir "Operación recursiva" e ingresar un pokemon con línea evolutiva | Pichu | imprime Pichu, Pikachu y Raichu | Pasa |  |
 | P04 | E2 | Elegir "Operación Recursiva" e ingresar un pokemon sin línea evolutiva | Raichu | imprime solo Raichu y termina | Pasa |  |
 | P05 | E3 | Agregar a la colección principal | equipo de 6 | el séptimo falla con excepción propia | Pasa |  |
