@@ -328,7 +328,7 @@ def main():
         return
 
     ruta_datos =
-    Path(__file__).resolve().parent / "data"
+    Path(__file__).resolve().parent.parent / "data"
 
     ruta_pokedex = ruta_datos / "pokedex.txt"
 
