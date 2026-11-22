@@ -6,8 +6,12 @@ from src.dominio.pokedex import (
     buscar_pokemon,
     mostrar_evoluciones,
     cargar_catalogo_inicial,
+    filas_del_catalogo,
     catalogo
 )
+
+from src.persistencia.texto import guardar_texto
+from src.persistencia.binario import guardar_binario
 
 from src.dominio.equipo import Equipo
 from src.dominio.historial import Historial
@@ -17,7 +21,8 @@ from src.excepciones import (
     ItemNoEncontradoError,
     ColeccionLlenaError,
     PilaVaciaError,
-    ColaVaciaError
+    ColaVaciaError,
+    ArchivoInvalidoError
 )
 
 from src.algoritmos.busqueda import (
