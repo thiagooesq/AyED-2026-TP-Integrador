@@ -6,11 +6,19 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 
 | Nombre | Mail | GitHub |
 | Thiago Esquivel | thiago.ne008@gmail.com | thiagooesq |
-|  |  |  |
-|  |  |  |
-|  |  |  |
 
 **Tema elegido:** Pokédex (dejar uno)
+
+## Funcionalidades
+
+Listar y consultar Pokémon.
+Buscar Pokémon mediante búsqueda lineal y binaria.
+Ordenar el catálogo por distintos criterios.
+Mostrar líneas evolutivas mediante recursividad.
+Administrar una colección de Pokémon.
+Utilizar una pila para el historial y una cola para los turnos.
+Guardar y cargar información mediante archivos de texto y binarios.
+Agregar, modificar y eliminar Pokémon.
 
 ## Cómo ejecutar
 
@@ -23,6 +31,19 @@ python -m src.main
 En Windows, si `python` no anda: `py -3 -m src.main`.
 
 Solo biblioteca estándar. No hay `requirements.txt` a propósito.
+
+## Estructuras y Persistencias
+
+El proyecto utiliza una lista enlazada, una pila, una cola y un iterador, además de algoritmos de búsqueda y ordenamiento.
+
+La información se almacena mediante archivos de texto y binarios.
+
+## Limitaciones
+
+El programa funciona mediante una interfaz de consola.
+El catálogo inicial depende de los datos disponibles en los archivos del proyecto.
+Los archivos binarios utilizan registros de tamaño fijo.
+Las líneas evolutivas dependen de las relaciones cargadas o definidas en el proyecto.
 
 ## Entregas
 
