@@ -91,26 +91,35 @@ Mediciones (`time.perf_counter`):
 
 - Layout del registro binario (campos, `struct`, anchos):
 
-rta: El programa permite guardar y cargar el catálogo de Pokémon mediante
-archivos de texto y archivos binarios, el archivo de texto utiliza registros separados por comas y una primera
-línea con los nombres de los campos, el archivo binario utiliza la biblioteca struct y registros de longitud
-fija.
+El programa permite guardar y cargar el catálogo de Pokémon mediante archivos de texto y archivos binarios.
+
+El archivo de texto utiliza registros separados por comas y una primera línea con los nombres de los campos.
+
+El archivo binario utiliza la biblioteca `struct` y registros de longitud fija mediante el formato `<I20s12s12s4H`.
+
+Cada registro ocupa 56 bytes:
+- ID: 4 bytes.
+- Nombre: 20 bytes.
+- Tipo 1: 12 bytes.
+- Tipo 2: 12 bytes.
+- HP, ataque, defensa y velocidad: 2 bytes cada uno.
 
 - Header:
 
-rta: El header tiene 9 bytes y utiliza el formato <4s1sI:
-AYED: identifica el archivo.
-P: identifica el tema Pokédex.
-Cantidad: cantidad de registros almacenados.
+El header tiene 9 bytes y utiliza el formato `<4s1sI`:
+- AYED: identifica el archivo.
+- P: identifica el tema Pokédex.
+- Cantidad: cantidad de registros almacenados.
 
 - Cómo se actualiza un registro por posición:
 
-rta: Cada registro ocupa 60 bytes y utiliza el formato <I20s12s12s4H:
-ID: 4 bytes.
-Nombre: 20 bytes.
-Tipo 1: 12 bytes.
-Tipo 2: 12 bytes.
-HP, ataque, defensa y velocidad: 2 bytes cada uno.
+Para modificar un registro se utiliza la función `actualizar_registro()`. Esta función abre el archivo binario en modo lectura y escritura (`r+b`) y utiliza `seek()` para posicionarse directamente en el registro correspondiente.
+
+La posición se calcula mediante la fórmula:
+
+`HEADER.size + posicion * FORMATO.size`
+
+De esta manera se actualiza únicamente el registro indicado, sin tener que reescribir todo el archivo binario.
 
 ## 7. Reparto de trabajo (E6)
 
