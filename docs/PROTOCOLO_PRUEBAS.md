@@ -20,6 +20,6 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P10 | E4 | Búsqueda lineal de un nombre que no existe |  | no encontrado, sin traceback | Pasa |  |
 | P11 | E4 | Búsqueda binaria con catálogo desordenado |  | avisa o reordena; no da un falso hit | Pasa |  |
 | P12 | E4 | Ordenar por un criterio y después por otro |  | el orden cambia | Pasa |  |
-| P13 | E5 | Dar de alta a un Pokemon | Id Nuevo | Se agrega al catálogo y se guarda | no corrido |  |
-| P14 | E5 | Dar de baja a un Pokemon | Id Existente | Se elimina del catálogo y se guarda | no corrido |  |
-| P15 | E5 | Modificar un Pokemon | Id Existente | Se actualizan sus datos y se guardan | no corrido |  |
+| P13 | E5 | Guardar en TXT, salir y volver a entrar | Catálogo modificado | Los datos se mantienen después de reiniciar el programa | pasa | Se comprobó que el Pokémon agregado sigue apareciendo |
+| P14 | E5 | Guardar en binario y modificar por ID | Pokémon existente | Los cambios se mantienen al recargar el archivo binario | pasa | Se modificó el ataque de Pikachu a 90 y se comprobó después de recargar |
+| P15 | E5 | Intentar cargar un archivo binario dañado | Archivo binario con bytes sobrantes | Se lanza ArchivoInvalidoError sin mostrar traceback | pasa | Se detectó el error y se mostró un mensaje controlado |
