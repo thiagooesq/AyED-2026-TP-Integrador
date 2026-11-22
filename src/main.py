@@ -41,7 +41,7 @@ TEMAS = {
     "musica": "Biblioteca musical",
 }
 
-RUTA_DATOS = Path(__file__).resolve().parent.parent / "data"
+RUTA_DATOS = Path(__file__).resolve().parent / "data"
 RUTA_TXT = RUTA_DATOS / "pokedex.txt"
 RUTA_BIN = RUTA_DATOS / "pokedex.bin"
 
@@ -364,13 +364,16 @@ def main():
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
         return
 
-    ruta_datos = Path(__file__).resolve().parent.parent / "data"
+    ruta_datos = Path(__file__).resolve().parent / "data"
 
     ruta_pokedex = ruta_datos / "pokedex.txt"
 
     try:
         cargar_catalogo_inicial(ruta_pokedex)
         print("Catálogo cargado correctamente.")
+        
+        if not RUTA_BIN.exists():
+            guardar_binario(RUTA_BIN, catalogo)
 
     except Exception as error:
         print("Error al cargar el catálogo:", error)
