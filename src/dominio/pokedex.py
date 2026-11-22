@@ -155,4 +155,4 @@ def cargar_catalogo_inicial(ruta):
         catalogo.eliminar(p)
 
     for p in nuevo:
-        catalogo.insterar_al_final(p)
+        catalogo.insertar_al_final(p)
