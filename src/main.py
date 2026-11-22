@@ -1,9 +1,11 @@
 from src.config import TEMA
+from pathlib import Path
 
 from src.dominio.pokedex import (
     listar_catalogo,
     buscar_pokemon,
     mostrar_evoluciones,
+    cargar_catalogo_inicial,
     catalogo
 )
 
@@ -323,6 +325,19 @@ def main():
 
     if TEMA not in TEMAS:
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
+        return
+
+    ruta_datos =
+    Path(__file__).resolve().parent / "data"
+
+    ruta_pokedex = ruta_datos / "pokedex.txt"
+
+    try:
+        cargar_catalogo_inicial(ruta_pokedex)
+        print("Catálogo cargado correctamente.")
+
+    except Exception as error:
+        print("Error al cargar el catálogo:", error)
         return
 
     equipo = Equipo()
