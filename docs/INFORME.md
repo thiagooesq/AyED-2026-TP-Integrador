@@ -125,4 +125,4 @@ De esta manera se actualiza únicamente el registro indicado, sin tener que rees
 
 | Integrante | Qué hizo | Qué puede defender |
 | --- | --- | --- |
-|  |  |  |
+| Thiago Esquivel | El desarrollo de las funcionalidades del programa, implementación de los TADs, algoritmos de búsqueda y ordenamiento, recursividad, persistencia de archivos y documentación del proyecto. (Osea todo) | El funcionamiento general del programa, las estructuras de datos, los algoritmos implementados, la recursividad y la persistencia en archivos de texto y binarios. (Osea todo) |
