@@ -321,15 +321,38 @@ def menu_abm():
             velocidad = int(input("Nueva velocidad: "))
             generacion = int(input("Nueva generación: "))
 
+            posicion = -1
+            pokemon_actualizado = None
+
+            for i, p in enumerate(catalogo):
+                if p.id == id_pokemon:
+                    posicion = i
+                    pokemon_actualizado = p
+                    break
+
+            if posicion == -1:
+                raise ItemNoEncontradoError(
+                    "No se encontró ese Pokémon."
+                )
+
             modificar_pokemon(
                 id_pokemon, nombre, tipo1, tipo2,
                 hp, ataque, defensa, velocidad, generacion
             )
-            guardar_cambios()
-            print("Pokémon modificado y guardado.")
 
-        else:
-            print("Opción inválida.")
+            actualizar_registro(
+                RUTA_BIN,
+                posicion,
+                pokemon_actualizado
+            )
+
+            guardar_texto(
+                RUTA_TXT,
+                filas_del_catalogo(catalogo),
+                ENCABEZADOS
+            )
+
+            print("Pokémon modificado y guardado.")
 
     except (ValueError, ItemNoEncontradoError,
             ArchivoInvalidoError) as error:
