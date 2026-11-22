@@ -36,6 +36,15 @@ TEMAS = {
     "musica": "Biblioteca musical",
 }
 
+RUTA_DATOS = Path(__file__).resolve().parent.parent / "data"
+RUTA_TXT = RUTA_DATOS / "pokedex.txt"
+RUTA_BIN = RUTA_DATOS / "pokedex.bin"
+
+ENCABEZADOS = [
+    "id", "nombre", "tipo1", "tipo2",
+    "hp", "ataque", "defensa",
+    "velocidad", "generacion",
+]
 
 def mostrar_menu():
     nombre = TEMAS.get(TEMA, TEMA or "(sin tema)")
