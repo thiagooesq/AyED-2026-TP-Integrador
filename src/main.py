@@ -327,8 +327,7 @@ def main():
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
         return
 
-    ruta_datos =
-    Path(__file__).resolve().parent.parent / "data"
+    ruta_datos = Path(__file__).resolve().parent.parent / "data"
 
     ruta_pokedex = ruta_datos / "pokedex.txt"
 
