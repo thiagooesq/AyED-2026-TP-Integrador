@@ -11,7 +11,11 @@ from src.dominio.pokedex import (
 )
 
 from src.persistencia.texto import guardar_texto
-from src.persistencia.binario import guardar_binario, actualizar_registro
+from src.persistencia.binario import(
+    guardar_binario,
+    cargar_binario,
+    actualizar_registro
+)
 
 from src.dominio.equipo import Equipo
 from src.dominio.historial import Historial
